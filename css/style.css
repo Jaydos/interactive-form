@@ -179,3 +179,15 @@ button:hover {
 		width: 49%;
 	}
 }
+
+.error {
+	color: red;
+}
+
+#ok {
+	color: rgb(41, 219, 41);
+}
+
+input {
+	transition: all .1s ease-in;
+}

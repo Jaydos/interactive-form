@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script
+			src="https://code.jquery.com/jquery-3.3.1.min.js"
+			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous">
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Register for Full Stack Conf</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -20,7 +26,7 @@
       <fieldset>         
         <legend>Basic Info</legend>
         
-        <label for="name">Name:</label>
+        <label id="name-label" for="name">Name: </label>
         <input type="text" id="name" name="user_name">
         
         <label for="mail">Email:</label>
@@ -34,7 +40,9 @@
           <option value="designer">Designer</option>          
           <option value="student">Student</option>
           <option value="other">Other</option>  
-        </select>           
+        </select>
+        <br>
+        <textarea name="" id="other-title" cols="60" rows="2" placeholder="Your Job Role"></textarea>           
       </fieldset>
       
       <fieldset class="shirt">
@@ -62,12 +70,12 @@
         <div id="colors-js-puns" class="">
           <label for="color">Color:</label>
           <select id="color">
-            <option value="cornflowerblue">Cornflower Blue (JS Puns shirt only)</option>
-            <option value="darkslategrey">Dark Slate Grey (JS Puns shirt only)</option> 
-            <option value="gold">Gold (JS Puns shirt only)</option> 
-            <option value="tomato">Tomato (I &#9829; JS shirt only)</option>
-            <option value="steelblue">Steel Blue (I &#9829; JS shirt only)</option> 
-            <option value="dimgrey">Dim Grey (I &#9829; JS shirt only)</option> 
+            <option class = 'puns' value="cornflowerblue">Cornflower Blue (JS Puns shirt only)</option>
+            <option class = 'puns'value="darkslategrey">Dark Slate Grey (JS Puns shirt only)</option> 
+            <option class = 'puns' value="gold">Gold (JS Puns shirt only)</option> 
+            <option class = 'heart' value="tomato">Tomato (I &#9829; JS shirt only)</option>
+            <option class = 'heart' value="steelblue">Steel Blue (I &#9829; JS shirt only)</option> 
+            <option class = 'heart' value="dimgrey">Dim Grey (I &#9829; JS shirt only)</option> 
           </select>
         </div>                
       </fieldset>
@@ -88,8 +96,8 @@
 
         <label for="payment">I'm going to pay with:</label>
         <select id="payment" name="user_payment">
-          <option value="select_method">Select Payment Method</option>
-          <option value="credit card">Credit Card</option>
+          <option value="select_method" disabled>Select Payment Method</option>
+          <option selected="selected" value="credit card">Credit Card</option>
           <option value="paypal">PayPal</option>
           <option value="bitcoin">Bitcoin</option>
         </select>
@@ -137,19 +145,21 @@
         </div>
 
         <div>
-        	<p>If you selected the PayPal option we'll take you to Paypal's site to set up your billing information, when you click “Register” below.</p>
+        	<p id="paypal-info">If you selected the PayPal option we'll take you to Paypal's site to set up your billing information, when you click “Register” below.</p>
         </div> 
 
         <div>
-        	<p>If you selected the Bitcoin option we'll take you to the Coinbase site to set up your billing information. Due to the nature of exchanging Bitcoin, all Bitcoin transactions will be final.</p>
+        	<p id="bitcoin-info">If you selected the Bitcoin option we'll take you to the Coinbase site to set up your billing information. Due to the nature of exchanging Bitcoin, all Bitcoin transactions will be final.</p>
         </div>                  
 
       </fieldset>        
         
-      <button type="submit">Register</button>
-      
+      <button id="submit" type="submit">Register</button>
+      <p style="display: none; color: red" id="review-error">Please review form...</p>
     </form>
 
-	</div>
+  </div>
+  <script src="js/script-functions.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
